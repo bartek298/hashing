@@ -1,0 +1,10 @@
+Metoda;Przypadek;CzasDodawania_us;CzasUsuwania_us
+Separate Chaining;Najlepszy;207;156
+Linear Probing;Najlepszy;24;32
+Quadratic Probing;Najlepszy;23;32
+Separate Chaining;Sredni;244;239
+Linear Probing;Sredni;32;40
+Quadratic Probing;Sredni;32;32
+Separate Chaining;Najgorszy;44;360
+Linear Probing;Najgorszy;7577;8309
+Quadratic Probing;Najgorszy;7632;7903

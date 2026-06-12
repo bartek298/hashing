@@ -7,20 +7,21 @@
 
 class SeparateChainingTable : public IHashTable {
 private:
-    std::vector<std::vector<std::string>> table;
+    std::vector<std::vector<int>> table;
 
 public:
     SeparateChainingTable(int s) : IHashTable(s) {
         table.resize(size);
     }
 
-    void insert(const std::string& key) override {
+    void insert(int key) override {
         int idx = getBaseHash(key);
-        // Dodajemy na koniec listy pod danym indeksem
+        // Opcjonalnie: jeśli nie chcemy duplikatów, można odkomentować poniższą linię,
+        // ale dla czystego O(1) przy wstawianiu po prostu wrzucamy na koniec:
         table[idx].push_back(key);
     }
 
-    bool remove(const std::string& key) override {
+    bool remove(int key) override {
         int idx = getBaseHash(key);
         auto& chain = table[idx];
         auto it = std::find(chain.begin(), chain.end(), key);
@@ -28,10 +29,10 @@ public:
             chain.erase(it);
             return true;
         }
-        return false; // Nie znaleziono elementu
+        return false;
     }
 
-    bool search(const std::string& key) override {
+    bool search(int key) override {
         int idx = getBaseHash(key);
         const auto& chain = table[idx];
         return std::find(chain.begin(), chain.end(), key) != chain.end();
