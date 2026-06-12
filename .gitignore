@@ -1,3 +1,12 @@
 .idea/
 cmake-build-debug/
 cmake-build-release/
+
+# Blokada dla plików wynikowych CSV
+*.csv
+
+# Blokada dla plików wykonywalnych i binarnych (Windows/Linux/Mac)
+*.exe
+*.o
+*.obj
+*.out
