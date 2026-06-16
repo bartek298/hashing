@@ -12,7 +12,7 @@ const int TABLE_SIZE = 5003;
 std::vector<int> generateRandomData(int count) {
     std::vector<int> data;
     for (int i = 0; i < count; i++) {
-        data.push_back(i * 17 + 1); // unikalne, dobrze rozproszone liczby
+        data.push_back(i * 17 + 1);
     }
     return data;
 }
@@ -56,7 +56,7 @@ int main() {
     srand(time(nullptr));
 
     // Otwieramy plik do zapisu wyników
-    std::ofstream wynikiPlik("wyniki_benchmarku1.csv");
+    std::ofstream wynikiPlik("wyniki_benchmarku2.csv");
 
     // Zapisujemy nagłówek kolumn w pliku CSV
     if (wynikiPlik.is_open()) {
@@ -76,7 +76,11 @@ int main() {
 
     auto worstInsertData = generateWorstCaseData(N);
     auto worstRemoveData = worstInsertData;
-
+    IHashTable* warmupTable = new SeparateChainingTable(TABLE_SIZE);
+    auto warmupData = generateRandomData(N);
+    for (int key : warmupData) warmupTable->insert(key);
+    for (int key : warmupData) warmupTable->remove(key);
+    delete warmupTable;
     // =================================================================
     // 1. CASE: NAJLEPSZY
     // =================================================================
