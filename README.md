@@ -26,17 +26,17 @@ Wydajność struktur została przetestowana dla $N = 2000$ elementów przy rozmi
 
 Pomiary czasu wykonania operacji dla 2000 elementów (w mikrosekundach $\mu s$):
 
-| Metoda | Przypadek | Czas dodawania [µs] | Czas usuwania [µs] |
+| Metoda | Przypadek | CzasDodawania_us | CzasUsuwania_us |
 | :--- | :--- | :--- | :--- |
-| **Separate Chaining** | Najlepszy | 230 | 181 |
-| **Linear Probing** | Najlepszy | 24 | 32 |
-| **Quadratic Probing** | Najlepszy | 82 | 53 |
-| **Separate Chaining** | Średni | 236 | 239 |
-| **Linear Probing** | Średni | 58 | 36 |
-| **Quadratic Probing** | Średni | 33 | 33 |
-| **Separate Chaining** | Najgorszy | 45 | 537 |
-| **Linear Probing** | Najgorszy | 7450 | 7612 |
-| **Quadratic Probing** | Najgorszy | 8638 | 8722 |
+| **Separate Chaining** | Najlepszy | 197 | 201 |
+| **Linear Probing** | Najlepszy | 25 | 32 |
+| **Quadratic Probing** | Najlepszy | 35 | 32 |
+| **Separate Chaining** | Średni | 230 | 267 |
+| **Linear Probing** | Średni | 53 | 35 |
+| **Quadratic Probing** | Średni | 32 | 32 |
+| **Separate Chaining** | Najgorszy | 90 | 478 |
+| **Linear Probing** | Najgorszy | 7528 | 7440 |
+| **Quadratic Probing** | Najgorszy | 7770 | 8000 |
 
 ### 💡 Główne Wnioski
 1. **Adresowanie otwarte górą w optymistycznych warunkach:** Dzięki doskonałej lokalności danych w pamięci podręcznej (cache), `Linear Probing` i `Quadratic Probing` osiągają czasy kilkukrotnie niższe niż `Separate Chaining`, która wymaga alokacji nowych węzłów.
