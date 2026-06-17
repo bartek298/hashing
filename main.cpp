@@ -78,7 +78,7 @@ int main() {
     auto worstRemoveData = worstInsertData;
     IHashTable* warmupTable = new SeparateChainingTable(TABLE_SIZE);
     auto warmupData = generateRandomData(N);
-    for (int key : warmupData) warmupTable->insert(key);
+    for (int key : warmupData)  warmupTable->insert(key);
     for (int key : warmupData) warmupTable->remove(key);
     delete warmupTable;
     // =================================================================
